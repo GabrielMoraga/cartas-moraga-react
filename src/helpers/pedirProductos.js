@@ -6,6 +6,6 @@ export const pedirProductos = () => {
     return new Promise((resolve, reject) => {
         setTimeout(()=> {
             resolve(stockCartas)
-        }, 2000)
+        }, 1000)
     })
 };

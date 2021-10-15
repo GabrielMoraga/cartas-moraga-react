@@ -1,13 +1,61 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10%;
+    padding: 10px;
     background-color: cornflowerblue;
+    
+}
 
+nav ul {
+    list-style: none;
+    color: whitesmoke;
+}
+
+.menu > li {
+    position: relative;
+    display: inline-block;
+}
+
+.menu > li:hover {
+    background: rgb(68, 117, 207);
+}
+
+
+.menu > li > a{
+    display: block;
+    padding: 15px 20px;;
+}   
+
+.selected {
+    border: solid whitesmoke;
+}
+
+/* Submenu */
+.submenu {
+    z-index: 99;
+    width: 120%;
+    position: absolute;
+    background: cornflowerblue;
+    display: none;
+}
+
+.submenu li:hover {
+    background: rgb(68, 117, 207);
+}
+
+.submenu li a {
+    display: block;
+    padding: 5px;
+    color: #fff;
+}
+
+.menu li:hover .submenu {
+    display:block;
 }

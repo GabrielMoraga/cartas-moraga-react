@@ -1,15 +1,17 @@
 import React from 'react'
 import './Item.css'
+import { Link } from 'react-router-dom'
 
 export const Item = ({id, name, type, description, price, power, defence, img }) => {
     return (
+      <Link to={`/detail/${id}`}>
         <figure className={`card card--${type}`}>
 
             <h3>ID: {id}</h3>
             <h1 className="card__name">{name}</h1>
 
           <div className="card__image-container">
-            <img src={img} alt="Eevee" className="card__image"/>   
+            <img src={img} alt={name} className="card__image"/>   
           </div>
           
           <figcaption className="card__caption">
@@ -36,6 +38,6 @@ export const Item = ({id, name, type, description, price, power, defence, img })
             
           </figcaption>
         </figure>
-
+      </Link>
     )
 }

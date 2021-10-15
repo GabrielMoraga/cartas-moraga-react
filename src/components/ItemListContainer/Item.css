@@ -11,7 +11,7 @@ h5 {
   margin: 0;
   font-weight: 400; }
 
-.card {
+.card, .card-non-hover {
   display: inline-block;
   width: 250px;
   padding: 1em;
@@ -74,6 +74,11 @@ h5 {
   .card__ability {
     margin-top: 1em;
     flex: 1 0; }
+  .card--normal {
+    background: linear-gradient(45deg, #daf5f0 0%, #b1cac6 34%, #a0a8a7 71%, #858585, 100%);
+    box-shadow: 0px 5px 20px -10px #bbbbbb; }
+    .card--normal .card__type {
+      background: #bbbbbb; }
   .card--ground {
     background: linear-gradient(110deg, #fdbb2d 0%, #3a1c71 100%);
     box-shadow: 0px 5px 20px -10px #3a1c71; }
@@ -122,3 +127,8 @@ body {
     font-family: "Open Sans", Helvetica, sans-serif;
     text-align: center;
     margin: 20px; }
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
