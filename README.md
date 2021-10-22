@@ -25,4 +25,4 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## Ejemplo de navegación en el sitio web
-
+![image](https://github.com/GabrielMoraga/cartas-moraga-react/blob/main/public/cartas.gif)
