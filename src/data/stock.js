@@ -8,7 +8,8 @@ export const stockCartas = [
         price: 120,
         power: 55,
         defence: 50,
-        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png" 
+        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png",
+        stock: 20
     },
 
     {
@@ -19,7 +20,8 @@ export const stockCartas = [
         price: 350,
         power: 75,
         defence: 50,
-        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png" 
+        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png",
+        stock: 20
     },
 
     {
@@ -30,7 +32,8 @@ export const stockCartas = [
         price: 200,
         power: 55,
         defence: 50,
-        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png"
+        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png",
+        stock: 20
     },
 
     {
@@ -41,7 +44,8 @@ export const stockCartas = [
         price: 200,
         power: 65,
         defence: 50,
-        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png"
+        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png",
+        stock: 20
     },
 
     {
@@ -52,7 +56,8 @@ export const stockCartas = [
         price: 550,
         power: 95,
         defence: 80,
-        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png" 
+        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png",
+        stock: 20
     },
 
     {
@@ -63,7 +68,8 @@ export const stockCartas = [
         price: 450,
         power: 85,
         defence: 60,
-        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png" 
+        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png",
+        stock: 20 
     },
 
     {
@@ -74,6 +80,7 @@ export const stockCartas = [
         price: 150,
         power: 55,
         defence: 60,
-        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png" 
+        img: "https://cartas-locas.000webhostapp.com/img/card_img1.png",
+        stock: 20 
     },
 ]
