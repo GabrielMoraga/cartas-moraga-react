@@ -59,3 +59,32 @@ nav ul {
 .menu li:hover .submenu {
     display:block;
 }
+
+
+/* Carrito de compra */
+
+.cartContainer {
+    position: relative;
+}
+
+.cart {
+    color: white;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    left: 70%;
+    background: red;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 2px;
+    font-size: 12px;
+  }

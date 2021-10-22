@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import './ItemDetail.css'
-import { Item } from '../ItemListContainer/Item'
 import { FaShoppingCart } from "react-icons/fa";
+import { CartContext } from '../../context/CartContext';
 
-export const ItemDetail = ({id, name, type, description, price, power, defence, img }) => {
+
+export const ItemDetail = ({id, name, type, description, price, power, defence, img, stock }) => {
+
+    const {addToCart, isInCart} = useContext(CartContext)
+
+    const [cantidad, setCantidad] = useState(0)
+
+    const handleInputChange = (e) => {
+        setCantidad(e.target.value)
+        
+    }
+
+    const handleAdd = () => {
+        const newItem = {
+            id,
+            name,
+            price,
+            type,
+            cantidad
+        }
+
+        if (cantidad > 0) {
+            addToCart(newItem)
+        }
+    }
+
     return (
         <div className='detail-container'>
           
@@ -59,9 +84,9 @@ export const ItemDetail = ({id, name, type, description, price, power, defence, 
                 </div>
 
                 <div className = "purchase-info">
-                    <input type = "number" min = "0" defaultValue = "1"/>
-                    <button type = "button" className = "btn">
-                    Agregar al carrito <FaShoppingCart/>
+                    <input type = "number" min = "0" value = {cantidad} onChange={handleInputChange}/>
+                    <button type = "button" className = "btn" onClick={handleAdd}>
+                    Agregar <FaShoppingCart/>
                     </button>
                 </div>
             </div>
