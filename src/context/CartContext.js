@@ -12,9 +12,8 @@ export const CartProvider = ( {children} ) => {
     console.log(carrito)
     console.log(carrito.map((item) => item.cantidad))
     
-    
     const addToCart = (item) => {
-      setCarrito( [...carrito, item] )
+      setCarrito([...carrito, item])
     }
     
     const removeItem = (itemId) => {
@@ -23,11 +22,11 @@ export const CartProvider = ( {children} ) => {
     }
   
     const calcularCantidad = () => {
-      return carrito.reduce( (acc, prod) => acc + Number(prod.cantidad), 0 )
+      return carrito.reduce( (acc, prod) => acc + prod.cantidad, 0 )
     }
 
     const calcularTotal = () => {
-      return carrito.reduce( (acc, prod) => acc + Number(prod.cantidad) * prod.price, 0)
+      return carrito.reduce( (acc, prod) => acc + prod.cantidad * prod.price, 0)
     }
 
     const isInCart = (itemId) => {

@@ -8,6 +8,7 @@ import
   Redirect
 } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
+import { CartScreen } from './components/CartScreen/CartScreen';
 
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
 
             <Route path='/contacto'>
 
+            </Route>
+
+            <Route path='/cart'>
+              <CartScreen/>
             </Route>
 
             <Route path='*'>

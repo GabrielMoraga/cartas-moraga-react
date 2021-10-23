@@ -2,18 +2,16 @@ import React, { useContext, useState } from 'react'
 import './ItemDetail.css'
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from '../../context/CartContext';
+import { ItemCount } from '../ItemCount/ItemCount';
+
 
 
 export const ItemDetail = ({id, name, type, description, price, power, defence, img, stock }) => {
 
-    const {addToCart, isInCart} = useContext(CartContext)
+    const {addToCart, } = useContext(CartContext)
 
     const [cantidad, setCantidad] = useState(0)
 
-    const handleInputChange = (e) => {
-        setCantidad(e.target.value)
-        
-    }
 
     const handleAdd = () => {
         const newItem = {
@@ -84,7 +82,7 @@ export const ItemDetail = ({id, name, type, description, price, power, defence, 
                 </div>
 
                 <div className = "purchase-info">
-                    <input type = "number" min = "0" value = {cantidad} onChange={handleInputChange}/>
+                    <ItemCount cantidad={cantidad} setCantidad={setCantidad} max={stock}/>
                     <button type = "button" className = "btn" onClick={handleAdd}>
                     Agregar <FaShoppingCart/>
                     </button>

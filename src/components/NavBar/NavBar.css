@@ -73,6 +73,7 @@ nav ul {
     margin: 5px;
 }
 
+/*Insignia de cantidad de productos en el carrito */
 .badge {
     position: absolute;
     top: 0;
@@ -87,4 +88,9 @@ nav ul {
     color: white;
     padding: 2px;
     font-size: 12px;
+  }
+
+  /* */
+  a {
+    list-style: none;
   }

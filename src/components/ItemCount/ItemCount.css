@@ -1,0 +1,34 @@
+
+/*Estilo recuadro cantidad*/
+.contador {
+    margin: 0.2em 0.5em;
+}
+
+
+/*Estilo de botones redondos*/
+:root {
+    --plus: rgb(23, 121, 186);
+    --minus: rgb(206, 63, 44);
+}
+
+.button-circle {
+    border-radius: 50%;
+    padding: 0.3em 0.7em;
+    font-weight: bold;
+    border-width: thin;
+    
+}
+
+.plus {
+    border-color: var(--plus);
+    color: var(--plus);  
+}
+
+.minus {
+    border-color: var(--minus);
+    color: var(--minus);
+}
+
+.button-circle:hover {
+    opacity: 0.7;
+}

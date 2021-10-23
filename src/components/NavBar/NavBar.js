@@ -24,8 +24,7 @@ const NavBar = () => {
                 <li><NavLink activeClassName='selected' to='/contacto'>Contacto</NavLink></li>
             </ul>
         </nav>
-        
-        <CartWidget/>
+        <Link to='/cart'><CartWidget/></Link>
     </header>
     )
 };

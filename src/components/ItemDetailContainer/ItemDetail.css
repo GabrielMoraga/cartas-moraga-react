@@ -56,7 +56,7 @@
     margin: 1.5rem 0;
 }
 .purchase-info input,
-.purchase-info .btn{
+.btn{
     border: 1.5px solid #ddd;
     border-radius: 25px;
     text-align: center;
@@ -69,13 +69,13 @@
     width: 60px;
 }
 
-.purchase-info .btn {
+.btn {
     cursor: pointer;
     color: #fff;
     background: #f64749;
 }
 
-.purchase-info .btn:hover{
+.btn:hover{
     opacity: 0.9;
 }
 
