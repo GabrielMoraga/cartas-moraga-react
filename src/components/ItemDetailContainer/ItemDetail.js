@@ -3,12 +3,12 @@ import './ItemDetail.css'
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from '../../context/CartContext';
 import { ItemCount } from '../ItemCount/ItemCount';
-
+import { Link } from 'react-router-dom';
 
 
 export const ItemDetail = ({id, name, type, description, price, power, defence, img, stock }) => {
 
-    const {addToCart, } = useContext(CartContext)
+    const {addToCart, isInCart} = useContext(CartContext)
 
     const [cantidad, setCantidad] = useState(0)
 
@@ -80,13 +80,17 @@ export const ItemDetail = ({id, name, type, description, price, power, defence, 
                     <li>Author: <span>GMS</span></li>
                     </ul>
                 </div>
-
-                <div className = "purchase-info">
-                    <ItemCount cantidad={cantidad} setCantidad={setCantidad} max={stock}/>
-                    <button type = "button" className = "btn" onClick={handleAdd}>
-                    Agregar <FaShoppingCart/>
-                    </button>
-                </div>
+              
+                { isInCart(id) 
+                    ? <Link to="/cart" className = "btn">Terminar mi compra</Link>
+                    :
+                    <div className = "purchase-info">
+                        <ItemCount cantidad={cantidad} setCantidad={setCantidad} max={stock}/>
+                        <button type = "button" className = "btn" onClick={handleAdd}>
+                        Agregar <FaShoppingCart/>
+                        </button>
+                    </div>
+                }
             </div>
         </div>
     )
