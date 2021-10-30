@@ -1,6 +1,7 @@
 //Este componente consume los datos asincronamente
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router';
+import { UIContext } from '../../context/UIContext';
 import { pedirProductos } from '../../helpers/pedirProductos';
 import { Spinner } from '../Spinner/Spinner';
 import { ItemList } from './ItemList';
@@ -10,7 +11,7 @@ import { ItemList } from './ItemList';
 const ItemListContainer = ({title}) => {
 
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(false); // Menejo del estado para cargando../spinning
+    const {loading, setLoading} = useContext(UIContext); // Menejo del estado para cargando../spinning
 
     const {categoryId} = useParams()
     console.log(categoryId)
@@ -42,7 +43,7 @@ const ItemListContainer = ({title}) => {
                 
             {loading ? <Spinner/>
             : <ItemList items={items}/>
-            }
+            }   
         </>
     )
 

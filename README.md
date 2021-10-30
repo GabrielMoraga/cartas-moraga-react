@@ -2,17 +2,13 @@
 
 Este proyecto fue creado con [Create React App](https://github.com/facebook/create-react-app).
 
-<<<<<<< HEAD
 ## Librerías adicionales
-Para los iconos se utiliza  [react-icons] v4.3.1
-Para el manejo del enrutamiento utiliza [react-router-dom] v5.3.0
-=======
-## 
->>>>>>> 5796bcc9bb301467c69fd7e3f37e73e236fb0576
+### Para los iconos se utiliza  [react-icons] v4.3.1
+### Para el manejo del enrutamiento utiliza [react-router-dom] v5.3.0
 
 ## Estilos
-Para los estilos el proyecto utiliza css simple.
-No requiere precompilar ni otras librerias
+#### Para los estilos el proyecto utiliza css simple.
+#### No requiere precompilar ni otras librerias
 
 ## El proyecto se encuentra en modo desarrollo
 

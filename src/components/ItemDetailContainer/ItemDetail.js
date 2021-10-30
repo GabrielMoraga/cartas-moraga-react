@@ -4,14 +4,18 @@ import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from '../../context/CartContext';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import { Item } from '../ItemListContainer/Item';
+import { UIContext } from '../../context/UIContext';
 
-
-export const ItemDetail = ({id, name, type, description, price, power, defence, img, stock }) => {
+export const ItemDetail = ({id, name, type, description, price, power, defence, img, stock}) => {
 
     const {addToCart, isInCart} = useContext(CartContext)
+    const {cardHover, setCardHover} = useContext(UIContext)
 
     const [cantidad, setCantidad] = useState(0)
 
+
+    setCardHover(false)
 
     const handleAdd = () => {
         const newItem = {
@@ -19,6 +23,7 @@ export const ItemDetail = ({id, name, type, description, price, power, defence, 
             name,
             price,
             type,
+            img,
             cantidad
         }
 
@@ -32,39 +37,17 @@ export const ItemDetail = ({id, name, type, description, price, power, defence, 
           
 
             <div className='column'>
-                <figure className={`card-non-hover card--${type}`}>
-
-                    <h3>ID: {id}</h3>
-                    <h1 className="card__name">{name}</h1>
-
-                    <div className="card__image-container">
-                    <img src={img} alt={name} className="card__image"/>   
-                    </div>
-
-                    <figcaption className="card__caption">
-                        
-                    <h3 className="card__type">
-                    {type}
-                    </h3>
-
-                    <table className="card__stats">
-                    <tbody><tr>
-                        <th>Price</th>
-                        <td>${price}</td>
-                    </tr>
-                    <tr>
-                        <th>Power</th>
-                        <td>{power}</td>
-                    </tr>
-                    
-                    <tr>
-                        <th>Defense</th>
-                        <td>{defence}</td>
-                    </tr>
-                    </tbody></table>
-
-                    </figcaption>
-                </figure>
+                <Item key={id}
+                id={id}
+                name={name}
+                type={type}
+                description={description}
+                price={price}
+                power={power}
+                defence={defence}
+                img={img}
+                stock={stock}
+                cardHover={cardHover}/>
             </div>
 
             <div className='column'>

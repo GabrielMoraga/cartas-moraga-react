@@ -9,45 +9,48 @@ import
 } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { CartScreen } from './components/CartScreen/CartScreen';
+import { UIProvider } from './context/UIContext';
 
 
 function App() {
  return (
     <div className="App">
 
-      <CartProvider>
-        <BrowserRouter>
-          <NavBar/>
-        
-          <Switch>
-            <Route exact path='/'>
-              <ItemListContainer title='Lista de Cartas'/>
-            </Route>
+      <UIProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <NavBar/>
+          
+            <Switch>
+              <Route exact path='/'>
+                <ItemListContainer title='Lista de Cartas'/>
+              </Route>
 
-            <Route exact path='/productos/:categoryId'>
-            <ItemListContainer/>
-            </Route>
+              <Route exact path='/productos/:categoryId'>
+              <ItemListContainer/>
+              </Route>
 
-            <Route exact path='/detail/:itemId'>
-              <ItemDetailContainer/>
-            </Route>
+              <Route exact path='/detail/:itemId'>
+                <ItemDetailContainer/>
+              </Route>
 
-            <Route path='/contacto'>
+              <Route path='/contacto'>
 
-            </Route>
+              </Route>
 
-            <Route path='/cart'>
-              <CartScreen/>
-            </Route>
+              <Route path='/cart'>
+                <CartScreen/>
+              </Route>
 
-            <Route path='*'>
-              <Redirect to='/'/>
-            </Route> 
+              <Route path='*'>
+                <Redirect to='/'/>
+              </Route> 
 
 
-          </Switch>
-        </BrowserRouter>
-      </CartProvider>
+            </Switch>
+          </BrowserRouter>
+        </CartProvider>
+      </UIProvider>
     </div>
   );
 }

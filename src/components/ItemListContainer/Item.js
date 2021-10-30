@@ -1,11 +1,11 @@
 import React from 'react'
 import './Item.css'
-import { Link } from 'react-router-dom'
 
-export const Item = ({id, name, type, description, price, power, defence, img }) => {
-    return (
-      <Link to={`/detail/${id}`}>
-        <figure className={`card card--${type}`}>
+export const Item = ({id, name, type, description, price, power, defence, img,
+   cardHover}) => {
+
+  return (
+        <figure className={`${cardHover ? "card" : "card-non-hover"} card--${type}`}>
 
             <h3>ID: {id}</h3>
             <h1 className="card__name">{name}</h1>
@@ -38,6 +38,5 @@ export const Item = ({id, name, type, description, price, power, defence, img })
             
           </figcaption>
         </figure>
-      </Link>
     )
 }

@@ -10,7 +10,10 @@ export const CartWidget = () => {
     return (
         <div className='cartContainer'>
             <FaShoppingCart className='cart'/>
-            <span className='badge'>{calcularCantidad()}</span>
+            <span className='badge'
+            style={{
+                visibility: calcularCantidad() === 0 ? 'hidden' : 'visible'}}
+            >{calcularCantidad()}</span>
         </div>
     )
 }
