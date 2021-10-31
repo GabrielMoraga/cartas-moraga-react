@@ -1,13 +1,13 @@
 import React from 'react'
 import './Item.css'
 
-export const Item = ({id, name, type, description, price, power, defence, img,
+export const Item = ({id, name, type, description, price, power, defense, img,
    cardHover}) => {
 
   return (
         <figure className={`${cardHover ? "card" : "card-non-hover"} card--${type}`}>
 
-            <h3>ID: {id}</h3>
+            <p className='.card__id'>ID: {id}</p>
             <h1 className="card__name">{name}</h1>
 
           <div className="card__image-container">
@@ -32,7 +32,7 @@ export const Item = ({id, name, type, description, price, power, defence, img,
               
               <tr>
                 <th>Defense</th>
-                <td>{defence}</td>
+                <td>{defense}</td>
               </tr>
             </tbody></table>
             

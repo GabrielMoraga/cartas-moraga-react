@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import { UIContext } from '../../context/UIContext';
-import { pedirProductos } from '../../helpers/pedirProductos';
+import { getFiresotre } from '../../firebase/config';
 import { Spinner } from '../Spinner/Spinner';
 import { ItemList } from './ItemList';
 
@@ -14,26 +14,29 @@ const ItemListContainer = ({title}) => {
     const {loading, setLoading} = useContext(UIContext); // Menejo del estado para cargando../spinning
 
     const {categoryId} = useParams()
-    console.log(categoryId)
 
     useEffect(()=>{
-
+        
         setLoading(true)
         //Pido los productos cuando se monta el componente
-        pedirProductos()
-            .then((res) => {
-                if(categoryId) {
-                    setItems(res.filter(prod => prod.type === categoryId))
-                } else {
-                    setItems(res) // Caundo obtengo la respuesta de la promesa cambio el estado de items al stockCartas
-                }
-            })
-            .catch((err) => console.log(err)) // Capturo el error
-            .finally(()=> {
-                setLoading(false)
-            })
+        const db = getFiresotre();
+        const productos = categoryId 
+            ? db.collection('productos').where('type','==', categoryId)
+            : db.collection('productos')
 
-    }, [categoryId]);
+            productos.get()
+            .then(res => {
+
+                const newItems = res.docs.map(doc => {
+                    return {id: doc.id, ...doc.data()}
+                })
+
+                setItems(newItems)
+            })
+            .catch(err => console.log(err))
+            .finally(() => {setLoading(false)})
+            
+    }, [categoryId, setLoading]);
 
 
     return (

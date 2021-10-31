@@ -5,6 +5,8 @@ Este proyecto fue creado con [Create React App](https://github.com/facebook/crea
 ## Librerías adicionales
 ### Para los iconos se utiliza  [react-icons] v4.3.1
 ### Para el manejo del enrutamiento utiliza [react-router-dom] v5.3.0
+### Para el backend se utiliza Firebase [firebase] v8.10.0
+
 
 ## Estilos
 #### Para los estilos el proyecto utiliza css simple.

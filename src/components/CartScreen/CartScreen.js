@@ -2,18 +2,19 @@ import React, { useContext } from 'react'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
+import './CartScreen.css'
 
 export const CartScreen = () => {
 
     const {carrito, vaciarCarrito, removeItem, calcularTotal} = useContext(CartContext)
    
     const small = {
-        width: '10%',
+        width: '5%',
         height: 'auto'
       };
 
     return (
-        <div className="container my-5">
+        <div className="container">
 
         {
             carrito.length === 0

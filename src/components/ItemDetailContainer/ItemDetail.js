@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Item } from '../ItemListContainer/Item';
 import { UIContext } from '../../context/UIContext';
 
-export const ItemDetail = ({id, name, type, description, price, power, defence, img, stock}) => {
+export const ItemDetail = ({id, name, type, description, price, power, defense, img, stock}) => {
 
     const {addToCart, isInCart} = useContext(CartContext)
     const {cardHover, setCardHover} = useContext(UIContext)
@@ -37,14 +37,14 @@ export const ItemDetail = ({id, name, type, description, price, power, defence, 
           
 
             <div className='column'>
-                <Item key={id}
+                <Item
                 id={id}
                 name={name}
                 type={type}
                 description={description}
                 price={price}
                 power={power}
-                defence={defence}
+                defense={defense}
                 img={img}
                 stock={stock}
                 cardHover={cardHover}/>

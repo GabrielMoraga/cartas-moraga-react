@@ -1,21 +1,10 @@
 import React from 'react'
-import { stockCartas } from '../../data/stock'
 import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router'
 import { Spinner } from '../Spinner/Spinner'
 import {ItemDetail} from './ItemDetail'
 import { UIContext } from '../../context/UIContext'
-
-//Creo una función que devuelve un item del stock asincornamente a partir de su itemId
-const getItem = (itemId) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(()=>{
-            resolve(stockCartas.find(item => item.id === Number(itemId))
-                )
-        }, 2000)
-    }
-    )
-}
+import { getFiresotre } from '../../firebase/config'
 
 const ItemDetailContainer = () => {
 
@@ -26,12 +15,18 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        getItem(itemId)
-            .then( res => setItem(res))
-            .catch(error => console.log(error))
-            .finally(()=> {setLoading(false)})
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [itemId])
+        const bd = getFiresotre();
+        const productos = bd.collection('productos');
+        const item = productos.doc(itemId);
+
+        item.get()
+            .then((doc) => {
+                setItem({id: doc.id, ...doc.data()})
+            })
+            .catch(err => console.log(err))
+            .finally(()=> setLoading(false))
+
+    }, [itemId, setLoading])
 
 
     return (
