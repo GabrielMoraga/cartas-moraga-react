@@ -10,6 +10,7 @@ const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
     const {loading, setLoading} =useContext(UIContext); // Esta repetido en ItemListContainer poner en un Context (custom Provider)
+    const {cardHover, setCardHover} = useContext(UIContext);
     const {itemId} = useParams()
 
     useEffect(() => {
@@ -24,16 +25,19 @@ const ItemDetailContainer = () => {
                 setItem({id: doc.id, ...doc.data()})
             })
             .catch(err => console.log(err))
-            .finally(()=> setLoading(false))
+            .finally(()=> {
+                setLoading(false)
+                setCardHover(false)
+            })
 
-    }, [itemId, setLoading])
+    }, [itemId, setLoading, setCardHover])
 
 
     return (
         <div>
             {
                 loading ? <Spinner/>
-                : <ItemDetail {...item}/>
+                : <ItemDetail {...item} cardHover={cardHover}/>
             }
         </div>
     )

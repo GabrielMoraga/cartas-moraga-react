@@ -5,17 +5,12 @@ import { CartContext } from '../../context/CartContext';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import { Item } from '../ItemListContainer/Item';
-import { UIContext } from '../../context/UIContext';
 
-export const ItemDetail = ({id, name, type, description, price, power, defense, img, stock}) => {
+export const ItemDetail = ({id, name, type, description, price, power, defense, img, stock, cardHover}) => {
 
     const {addToCart, isInCart} = useContext(CartContext)
-    const {cardHover, setCardHover} = useContext(UIContext)
 
     const [cantidad, setCantidad] = useState(0)
-
-
-    setCardHover(false)
 
     const handleAdd = () => {
         const newItem = {

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UIContext } from '../../context/UIContext';
 import './Item.css'
 
-export const Item = ({id, name, type, description, price, power, defense, img,
-   cardHover}) => {
+
+export const Item = ({id, name, type, description, price, power, defense, img}) => {
+
+  const {cardHover} = useContext(UIContext);
 
   return (
         <figure className={`${cardHover ? "card" : "card-non-hover"} card--${type}`}>
@@ -22,16 +25,16 @@ export const Item = ({id, name, type, description, price, power, defense, img,
         
             <table className="card__stats">
               <tbody><tr>
-                <th>Price</th>
+                <th>Precio</th>
                 <td>${price}</td>
               </tr>
               <tr>
-                <th>Power</th>
+                <th>Poder</th>
                 <td>{power}</td>
               </tr>
               
               <tr>
-                <th>Defense</th>
+                <th>Defensa</th>
                 <td>{defense}</td>
               </tr>
             </tbody></table>

@@ -12,7 +12,7 @@ const ItemListContainer = ({title}) => {
 
     const [items, setItems] = useState([]);
     const {loading, setLoading} = useContext(UIContext); // Menejo del estado para cargando../spinning
-
+    const {cardHover, setCardHover} = useContext(UIContext);
     const {categoryId} = useParams()
 
     useEffect(()=>{
@@ -34,9 +34,12 @@ const ItemListContainer = ({title}) => {
                 setItems(newItems)
             })
             .catch(err => console.log(err))
-            .finally(() => {setLoading(false)})
+            .finally(() => {
+                setLoading(false)
+                setCardHover(true)
+            })
             
-    }, [categoryId, setLoading]);
+    }, [categoryId, setLoading, setCardHover]);
 
 
     return (
@@ -45,7 +48,7 @@ const ItemListContainer = ({title}) => {
             <h1>{title}</h1>
                 
             {loading ? <Spinner/>
-            : <ItemList items={items}/>
+            : <ItemList items={items} cardHover={cardHover}/>
             }   
         </>
     )
