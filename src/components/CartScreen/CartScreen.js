@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
-import './CartScreen.css'
 
 export const CartScreen = () => {
 
